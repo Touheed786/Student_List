@@ -1,0 +1,56 @@
+
+<div class="container mt-5" >
+    <div class="card" style="height: 35px;">
+        <div *ngIf="selectedIds.length">
+            <i class="fas fa-trash-alt" (click)="deleteAll()"></i>
+        </div> 
+        <div *ngIf="!selectedIds.length">
+            <i class="fa-disabled fas fa-trash-alt"></i>
+        </div> 
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                  <th>
+                    <input type="checkbox"  [checked]="headerSelected" [disabled]="students.length===0" (change)="selectAll($event)" id="header-checkbox">
+                  </th>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <!-- Add more headers as needed -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let student of students" >
+                  <td>
+                    <input type="checkbox" class="check-input"  [checked]="rowSelected" (change)="toggleSelection($event, student.id)">
+                  </td>
+                  <td>{{ student.name }}</td>
+                  <td>{{ student.age }}</td>
+                  <!-- Add more columns as needed -->
+                </tr>
+              </tbody>
+          </table>
+    </div>
+</div>
+
+
+<form>
+<div class="container">
+  <div class="card p-2">
+  <div class="row">
+      <div class="col-sm">
+        <span>Name</span> <input type="text" name="" id="" #nameInput required name="name" [(ngModel)]="student.name">
+      </div>
+      <div class="col-sm">
+        Age <input type="number" #ageInput required name="age" [(ngModel)]="student.age">
+      </div>
+      <div class="col-sm">
+        <button type="submit" class="btn btn-primary" (click)="addStudent()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

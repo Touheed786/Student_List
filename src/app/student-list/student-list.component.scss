@@ -1,0 +1,16 @@
+th:nth-child(1),
+td:nth-child(1) {
+  width: 50px; /* Adjust the width as needed */
+}
+
+.fa-trash-alt{
+    font-size: 23px;
+    margin: 5px;
+
+    color: red;
+}
+
+.fa-disabled {
+    opacity: 0.6;
+    // cursor: not-allowed;
+  }

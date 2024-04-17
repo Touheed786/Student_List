@@ -1,0 +1,27 @@
+<p>product works!</p>
+<div>
+    <h2>Add Product</h2>
+    <form (submit)="addProduct()">
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" [(ngModel)]="product.productName" name="productName" required>
+  
+      <label for="price">Price:</label>
+      <input type="number" id="price" [(ngModel)]="product.price" name="price" required>
+  
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" required>
+  
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+
+  <button (click)="getAllprod()">all prod</button>
+
+  <!-- {{products | json}} -->
+
+  <div *ngIf="products">
+    <ul *ngFor="let prod of products">
+        <li>{{prod.productName}}</li>
+        <li>{{prod.price}}</li>
+        <li>{{prod.imageFileName}}</li>
+    </ul>
+</div>
