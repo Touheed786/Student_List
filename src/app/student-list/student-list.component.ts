@@ -9,7 +9,6 @@ export class Student {
   id: number;
   name: string;
   age: number;
-  checked:boolean;
 }
 
 @Component({
@@ -113,15 +112,13 @@ export class StudentListComponent implements OnInit {
     this.studentService.bulkDelete(param).subscribe((data)=>{
       this.getStudents();
       console.log(data)
+      jQuery('#header-checkbox').prop('indeterminate', false); // If no checkboxes are checked, set the header checkbox to unchecked
+      this.headerSelected = false;
     })
   }
 
-  deleteStudent(id:number){
-    this.students = this.students.filter(student => student.id !==id)
-  }
-
   addStudent(): void {
-    if(this.student.name.trim() == "" || name == null || this.student.age == null){
+    if(this.student.name === null){
       alert("Empty")
       return;
     }
