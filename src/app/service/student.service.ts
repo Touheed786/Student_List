@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class StudentService {
 
   constructor(private http:HttpClient) { }
-  url = "http://studentserver-studentlist.up.railway.app";
+  url = "https://studentserver-studentlist.up.railway.app";
 
 
   bulkDelete(param:HttpParams)
